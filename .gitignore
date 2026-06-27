@@ -1,0 +1,26 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+
+# Data
+data/raw/
+data/processed/
+
+# Secrets
+.env
+
+# Logs
+logs/
+
+# dbt
+target/
+dbt_packages/
+
+# VS Code
+.vscode/
