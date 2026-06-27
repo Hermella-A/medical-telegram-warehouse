@@ -1,0 +1,9 @@
+﻿version: '3.8'
+services:
+  app:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    env_file:
+      - .env
