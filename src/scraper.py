@@ -115,3 +115,16 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main()) 
+
+from telethon.errors import FloodWaitError
+
+async def scrape_with_retry(client, channel, **kwargs):
+    for attempt in range(3):
+        try:
+            return await scrape_channel(client, channel, **kwargs)
+        except FloodWaitError as e:
+            print(f"Flood wait {e.seconds}s for {channel}, retrying...")
+            await asyncio.sleep(e.seconds)
+        except Exception as e:
+            print(f"Error scraping {channel}: {e}")
+            break
