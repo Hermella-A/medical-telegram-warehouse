@@ -15,9 +15,9 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv('C:/Users/Dataencoder/Desktop/medical-telegram-warehouse/.env')
 
-API_ID = int(os.getenv('API_ID'))
-API_HASH = os.getenv('API_HASH')
-PHONE = os.getenv('PHONE_NUMBER')
+API_ID = int(os.getenv('34522112'))
+API_HASH = os.getenv('ba8f982ab8aed17346c0e7811150db14')
+PHONE = os.getenv('+251961045238')
 
 # Configuration
 CHANNELS = [
