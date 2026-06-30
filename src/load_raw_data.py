@@ -37,6 +37,17 @@ def load_file(filepath):
         return []
     return messages
 
+
+def get_db_connection(max_retries=3):
+    for attempt in range(max_retries):
+        try:
+            return psycopg2.connect(...)
+        except OperationalError as e:
+            print(f"DB connection failed (attempt {attempt+1}): {e}")
+            time.sleep(2 ** attempt)
+    raise Exception("Could not connect to PostgreSQL after multiple attempts.")
+
+
 def main():
     conn = get_connection()
     cur = conn.cursor()

@@ -1,0 +1,8 @@
+- name: Run dbt tests
+  run: |
+    cd medical_warehouse
+    dbt test
+
+- name: Validate Dagster pipeline (dry-run)
+  run: |
+    dagster job execute -f pipeline.py -j medical_warehouse_pipeline --dry-run 
